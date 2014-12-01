@@ -70,6 +70,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/demo_start" />
+    
+    <Button
+        android:id="@+id/hack_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/demo_hack" />
 
     <Button
         android:id="@+id/github_btn"

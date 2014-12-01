@@ -1,10 +1,13 @@
 package com.example.test.util;
 
+import java.util.List;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.text.TextUtils;
 
@@ -15,16 +18,27 @@ import android.text.TextUtils;
 public class ApkUtils {
 
 	public static boolean isInstalled(Context context, String packageName) {
-		PackageManager pm = context.getPackageManager();
-		boolean installed = false;
-		try {
-			pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
-			installed = true;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return installed;
+	    if (packageName == null || "".equals(packageName))
+	        return false;
+	        try {
+	        ApplicationInfo info = context.getPackageManager()
+	        .getApplicationInfo(packageName,
+	        PackageManager.GET_UNINSTALLED_PACKAGES);
+	        return true;
+	        } catch (NameNotFoundException e) {
+	        return false;
+	        }
+	    
+//		PackageManager pm = context.getPackageManager();
+//		boolean installed = false;
+//		try {
+//			pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+//			installed = true;
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//
+//		return installed;
 	}
 
 	public static String getSourceApkPath(Context context, String packageName) {

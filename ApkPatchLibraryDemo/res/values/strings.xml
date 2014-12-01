@@ -10,5 +10,6 @@
     <string name="demo_info3">3.点击“Start”；</string>
     <string name="demo_start">Start</string>
     <string name="demo_github">GitHub</string>
+    <string name="demo_hack">Hack</string>
 
 </resources>
